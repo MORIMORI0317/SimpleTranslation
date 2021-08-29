@@ -21,7 +21,6 @@ import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-//https://cloud.google.com/translate/docs/languages
 public class TranslationManager {
     private static final Minecraft mc = Minecraft.getInstance();
     private static final Gson GSON = new Gson();

@@ -22,7 +22,8 @@ public class ComponentUtils {
             List<TranslatableComponent> list = getTranslatableComponents((TranslatableComponent) text);
             ILangCheckClientLanguage language = (ILangCheckClientLanguage) SimpleTranslationExpectPlatform.getLanguage();
             if (list.stream().noneMatch(n -> language.getNoLocalizedLang().contains(n.getKey()))) {
-                return LangUtils.getGoogleCodeByLang(mc.getLanguageManager().getSelected());
+                String langCode = LangUtils.getGoogleCodeByLang(mc.getLanguageManager().getSelected());
+                return langCode != null ? langCode : "en";
             }
             return "en";
         }
