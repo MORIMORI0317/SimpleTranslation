@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "[35,)"
+#issueTrackerURL = ""
+license = "LGPL v3"
+
+[[mods]]
+modId = "simpletranslation"
+version = "${version}"
+displayName = "Simple Translation"
+authors = "MORIMORI0317"
+description = '''
+The Ikisugi Simple Translation MOD
+'''
+logoFile = "icon.png"
+
+[[dependencies.simpletranslation]]
+modId = "architectury"
+mandatory = true
+versionRange = "[1.1.55,)"
+ordering = "AFTER"
+side = "CLIENT"
+[[dependencies.simpletranslation]]
+modId = "cloth-config"
+mandatory = true
+versionRange = "[4.11.26,)"
+ordering = "AFTER"
+side = "CLIENT"
+[modproperties.simpletranslation]
+catalogueImageIcon="icon.png"

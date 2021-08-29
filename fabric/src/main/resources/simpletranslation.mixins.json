@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.morimori.simpletranslation.fabric.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "ClientLanguageMixin",
+    "LanguageMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

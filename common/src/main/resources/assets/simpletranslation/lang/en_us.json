@@ -1,0 +1,18 @@
+{
+  "_comment.k": "Key",
+  "key.categories.simpletranslation": "Simple Translation",
+  "key.simpletranslation.translate": "Translation",
+  "_comment.t": "Tooltip",
+  "tooltip.simpletranslation.progress": "Translating",
+  "tooltip.simpletranslation.error": "Translation error: %s",
+  "tooltip.simpletranslation.rejection": "Cannot translate",
+  "tooltip.simpletranslation.norequired": "No translation required",
+  "tooltip.simpletranslation.lang": "%s → %s",
+  "tooltip.simpletranslation.result": "Translation: %s",
+  "tooltip.simpletranslation.autodetection": "Auto detection",
+  "_comment.c": "Config",
+  "text.autoconfig.simpletranslation.title": "Simple Translation Config",
+  "text.autoconfig.simpletranslation.option.targetLang": "Translation destination language",
+  "text.autoconfig.simpletranslation.option.sourceLang": "Translation source language",
+  "text.autoconfig.simpletranslation.option.enableToggleMode": "Enable toggle translation mode"
+}

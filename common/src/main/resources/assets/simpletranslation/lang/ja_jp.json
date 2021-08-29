@@ -1,0 +1,18 @@
+{
+  "_comment.k": "Key",
+  "key.categories.simpletranslation": "Simple Translation",
+  "key.simpletranslation.translate": "翻訳",
+  "_comment.t": "Tooltip",
+  "tooltip.simpletranslation.progress": "翻訳中",
+  "tooltip.simpletranslation.error": "翻訳エラー: %s",
+  "tooltip.simpletranslation.rejection": "翻訳不可",
+  "tooltip.simpletranslation.norequired": "翻訳不要",
+  "tooltip.simpletranslation.lang": "%s → %s",
+  "tooltip.simpletranslation.result": "翻訳: %s",
+  "tooltip.simpletranslation.autodetection": "自動検出",
+  "_comment.c": "Config",
+  "text.autoconfig.simpletranslation.title": "Simple Translationの設定",
+  "text.autoconfig.simpletranslation.option.targetLang": "翻訳先の言語",
+  "text.autoconfig.simpletranslation.option.sourceLang": "翻訳元の言語",
+  "text.autoconfig.simpletranslation.option.enableToggleMode": "切り替え翻訳モードを有効にする"
+}
