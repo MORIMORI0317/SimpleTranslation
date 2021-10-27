@@ -6,7 +6,11 @@ architectury {
     platformSetupLoomIde()
     forge()
 }
-
+loom {
+    forge {
+        mixinConfig "iammusicplayer.mixins.json"
+    }
+}
 configurations {
     common
     shadowCommon
@@ -26,9 +30,8 @@ dependencies {
         transitive = false
     }
 
-    modApi "me.shedaniel.cloth:cloth-config:5.0.38"
+    modApi "me.shedaniel.cloth:cloth-config-forge:5.0.38"
 }
-
 processResources {
     inputs.property "version", project.version
 
