@@ -8,7 +8,7 @@ architectury {
 }
 loom {
     forge {
-        mixinConfig "iammusicplayer.mixins.json"
+        mixinConfig "simpletranslation.mixins.json"
     }
 }
 configurations {

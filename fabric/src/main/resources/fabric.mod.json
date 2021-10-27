@@ -16,7 +16,7 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "net.morimori0317.simpletranslation.SimpleTranslationFabric"
+      "net.morimori0317.simpletranslation.fabric.SimpleTranslationFabric"
     ],
     "modmenu": [
       "net.morimori0317.simpletranslation.fabric.integration.ModMenuIntegration"

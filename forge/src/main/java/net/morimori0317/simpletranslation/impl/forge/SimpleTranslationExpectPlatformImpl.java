@@ -1,4 +1,4 @@
-package net.morimori0317.simpletranslation.impl.foge;
+package net.morimori0317.simpletranslation.impl.forge;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
