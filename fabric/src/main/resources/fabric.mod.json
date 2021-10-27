@@ -8,26 +8,25 @@
     "MORIMORI0317"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/simple-translation",
+    "sources": "https://github.com/MORIMORI0317/SimpleTranslation"
   },
-  "license": "LGPL v3",
-  "icon": "assets/simpletranslation/icon.png",
+  "license": "GNU LGPLv3",
+  "icon": "assets/simpletranslation/logo.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "net.morimori.simpletranslation.SimpleTranslationFabric"
+      "net.morimori0317.simpletranslation.SimpleTranslationFabric"
     ],
     "modmenu": [
-      "net.morimori.simpletranslation.fabric.integration.ModMenuIntegration"
+      "net.morimori0317.simpletranslation.fabric.integration.ModMenuIntegration"
     ]
   },
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
-    "minecraft": ">=1.16.4",
-    "architectury": ">=1.1.55",
-    "cloth-config2": ">=4.11.26"
+    "minecraft": ">=1.17.1",
+    "architectury": ">=1.1.55"
   },
   "accessWidener": "simpletranslation.accesswidener",
   "mixins": [

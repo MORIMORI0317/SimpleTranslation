@@ -1,29 +1,35 @@
 modLoader = "javafml"
-loaderVersion = "[35,)"
+loaderVersion = "[37,)"
 #issueTrackerURL = ""
-license = "LGPL v3"
+license = "Insert License Here"
 
 [[mods]]
-modId = "simpletranslation"
+modId = "examplemod"
 version = "${version}"
-displayName = "Simple Translation"
-authors = "MORIMORI0317"
+displayName = "Example Mod"
+authors = "Me!"
 description = '''
-The Ikisugi Simple Translation MOD
+This is an example description! Tell everyone what your mod is about!
 '''
-logoFile = "icon.png"
+#logoFile = ""
 
-[[dependencies.simpletranslation]]
+[[dependencies.examplemod]]
+modId = "forge"
+mandatory = true
+versionRange = "[37,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.examplemod]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.17.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.examplemod]]
 modId = "architectury"
 mandatory = true
-versionRange = "[1.1.55,)"
+versionRange = "[2.3.23,)"
 ordering = "AFTER"
-side = "CLIENT"
-[[dependencies.simpletranslation]]
-modId = "cloth-config"
-mandatory = true
-versionRange = "[4.11.26,)"
-ordering = "AFTER"
-side = "CLIENT"
-[modproperties.simpletranslation]
-catalogueImageIcon="icon.png"
+side = "BOTH"
