@@ -32,6 +32,14 @@ dependencies {
 
     modApi "me.shedaniel.cloth:cloth-config-forge:5.0.38"
 }
+minecraft {
+    runs {
+        client {
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+        }
+    }
+}
 processResources {
     inputs.property "version", project.version
 
