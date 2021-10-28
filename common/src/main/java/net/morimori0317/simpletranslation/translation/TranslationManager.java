@@ -15,11 +15,11 @@ import net.morimori0317.simpletranslation.util.ComponentUtils;
 import net.morimori0317.simpletranslation.util.LangUtils;
 
 import java.io.FileReader;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class TranslationManager {
@@ -32,7 +32,7 @@ public class TranslationManager {
     private static final TranslationManager INSTANCE = new TranslationManager();
     private final Map<SourceLangText, TranslationData> CASH = new HashMap<>();
     private final List<String> PROGRESS = new ArrayList<>();
-    private final Translator translator = new Translator();
+    public final Translator translator = new Translator();
 
     public static TranslationManager getInstance() {
         return INSTANCE;
@@ -40,6 +40,10 @@ public class TranslationManager {
 
     public void init() {
         readCash();
+    }
+
+    public String getChatTranslation(Component text, Consumer<String> strlsiner) {
+        return toTranslation(text.getString(),"", strlsiner);
     }
 
     public void readCash() {
@@ -80,7 +84,7 @@ public class TranslationManager {
                     ja.add(n.text, jk);
                 });
             }).get();
-            Files.write(Paths.get("simpletranslation.json"), jo.toString().getBytes(StandardCharsets.UTF_8));
+            Files.writeString(Paths.get("simpletranslation.json"), jo.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -130,6 +134,22 @@ public class TranslationManager {
         return Collections.singletonList(REJECTION_TEXT);
     }
 
+    public String toTranslation(String text, String srcLang, Consumer<String> strlisner) {
+        SourceLangText txt = new SourceLangText(srcLang, text);
+        if (CASH.containsKey(txt)) {
+            if (CASH.get(txt).getTranslateInfo(srcLang).getError() != null)
+                return CASH.get(txt).getTranslateInfo(srcLang).getText();
+            else
+                return null;
+        }
+        if (PROGRESS.contains(text))
+            return null;
+        PROGRESS.add(text);
+        TranslateThread tt = new TranslateThread(text, srcLang != null ? srcLang : "", currentLang());
+        tt.start();
+        return null;
+    }
+
     public String currentLang() {
         if (!SimpleTranslation.CONFIG.targetLang.isEmpty())
             return SimpleTranslation.CONFIG.targetLang;
@@ -143,11 +163,17 @@ public class TranslationManager {
         private final String text;
         private final String srcLang;
         private final String langCode;
+        private final Consumer<String> strLisner;
 
         public TranslateThread(String text, String srcLang, String langCode) {
+            this(text, srcLang, langCode, null);
+        }
+
+        public TranslateThread(String text, String srcLang, String langCode, Consumer<String> strLisner) {
             this.text = text;
             this.srcLang = srcLang;
             this.langCode = langCode;
+            this.strLisner = strLisner;
             this.setName("Translate Thread");
         }
 
@@ -172,6 +198,8 @@ public class TranslationManager {
             try {
                 mc.submit(() -> {
                     CASH.put(new SourceLangText(srcLang, text), finalData);
+                    if (strLisner != null)
+                        strLisner.accept(text);
                 }).get();
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
